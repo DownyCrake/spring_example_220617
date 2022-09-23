@@ -1,5 +1,6 @@
 package com.example.lesson03.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.lesson03.model.Review;
@@ -8,5 +9,22 @@ import com.example.lesson03.model.Review;
 public interface ReviewDAO {
 	
 	public Review selectReviewById(int id);
+	
+	public int insertReview(Review review); // reivew 객체의 내용을 row(record)로 추가
+	
+	public int insertReviewAsField(
+			@Param("storeId") int storeId, 
+			@Param("menu")String menu, 
+			@Param("userName")String userName, 
+			@Param("point")Double point, 
+			@Param("review")String review );
+	
+	public int updateReviewById(
+			@Param("id") int id,
+			@Param("review")String review);
+	
+	
+	
+	
 	
 }
