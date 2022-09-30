@@ -44,5 +44,20 @@
 	${fn:split(str1, '.')[0]}<br>
 	${fn:split(str1, '.')[1]}<br>
 	
+	<h3>7. 시작 인덱스부터 종료 인덱스까지 자르기(substring)</h3>
+	<%-- str2에서 love 추출 --%>
+	<%-- I love chiken. --%>
+	${fn:substring(str2, 2, 6)}
+	
+	<h3>8. 모두 소문자로 변경(toLowerCase)</h3>
+	${fn:toLowerCase(str2)}
+	
+	<h3>9. 모두 대문자로 변경(toUpperCase)</h3>
+	${fn:toUpperCase(str2)}
+	
+	<h3>10. 앞 뒤 공백 제거(trim)</h3>
+	<c:set var="str3" value="           hello           " />
+	<pre>str3: ${str3}</pre>
+	<pre>str3: ${fn:trim(str3)}</pre>
 </body>
 </html>
