@@ -34,7 +34,7 @@ public class Lesson04Ex01Controller {
 			@RequestParam(value = "introduce", required=false) String introduce  ) {
 		
 		// db insert
-		userBO.addtUser(name, yyyymmdd, email, introduce);
+		userBO.addUser(name, yyyymmdd, email, introduce);
 		
 		// 결과 jsp 
 		return "lesson04/afterAddUser";

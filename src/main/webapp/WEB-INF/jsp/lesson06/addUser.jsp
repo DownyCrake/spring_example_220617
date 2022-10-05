@@ -16,7 +16,6 @@
 <body>
 <div class="container">
 	<h1>회원 정보 추가</h1>
-	<form method="post" action="/lesson06/ex01/add_user">
 		<div class="form-group">
 			<label for="name" >이름</label>
 			<input type="text" id="name" name="name" class="form-control">
@@ -32,10 +31,9 @@
 		<div class="form-group">
 			<label for="introduce" >자기소개</label>
 			<input type="text" id="introduce" name="introduce" class="form-control">
-		</div>
 		
 		<%-- ajax 사용시 type을 반드시 button으로.submit 충돌 --%>
-		<button class="button" id="addBtn" class="btn btn-info">추가</button>	
+		<button type="button" id="addBtn" class="btn btn-info">추가</button>	
 	</form>
 
 </div>
@@ -103,6 +101,9 @@ $(document).ready(function() {
 			return ;
 		}
 		
+		let introduce = $('#introduce').val().trim();
+		
+		
 		//서버에 전송 AJAX: 폼태그와 상관없이 비동기로 별도 요청 (request)
 		$.ajax({
 			//request
@@ -112,7 +113,13 @@ $(document).ready(function() {
 			
 			//response
 			, success:function(data) {
-				alert(data);
+				//alert(data);
+				if (data == "success") {
+					location.href = "/lesson06/ex01/get_user_view"
+				}
+			}
+			, complete:function(data) {
+				alert("완료");
 			}
 			, error: function(e) {
 				alert("에러:" + e);
